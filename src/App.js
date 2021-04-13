@@ -1,23 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useEffect, useState } from "react";
+import ShowJobs from "./components/ShowJobs";
+import "./cssfiles/app.css";
+import Loader from "./components/Loader";
+export let DataContext = React.createContext();
 function App() {
+  const [allJobs, changejobs] = useState([]);
+  const [process, changeprocess] = useState({ loading: true, error: false });
+
+  useEffect(() => {
+    let temp = [];
+    var k = 1;
+
+    for (var i = 1; i <= 6; i++) {
+      fetch(`/positions.json?page=${i}`)
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          temp = [...temp, ...data];
+          k++;
+
+          if (k === 7) {
+            changejobs((prevjobs) => [...prevjobs, ...temp]);
+            changeprocess({ loading: false, error: false });
+          }
+        })
+        .catch((err) => {
+          changeprocess({ loading: false, error: true });
+        });
+    }
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {process.loading ? (
+        <Loader />
+      ) : process.error ? (
+        `Some went wrong`
+      ) : (
+        <DataContext.Provider value={allJobs}>
+          <ShowJobs />
+        </DataContext.Provider>
+      )}
     </div>
   );
 }

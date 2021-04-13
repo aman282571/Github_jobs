@@ -1,0 +1,247 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway|Roboto|Oswald|Titillium|Lato:ital");
+
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  scroll-behavior: smooth;
+}
+#container {
+  max-width: 1100px;
+  box-shadow: 0px 6px 15px rgba(53, 50, 50, 0.403);
+  margin: auto;
+  margin-top: 5px;
+  transition: box-shadow 400ms;
+  padding-bottom: 20px;
+  margin-bottom: 10px;
+  font-family: Roboto;
+}
+#container:hover {
+  box-shadow: 0px 9px 30px rgba(53, 50, 50, 0.403);
+}
+#search {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  padding: 30px 0px 60px 0px;
+  position: relative;
+}
+#search::before {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 2px;
+  background-color: rgb(12, 175, 240);
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#search > div {
+  width: 40%;
+}
+#search > div > p {
+  margin: 5px;
+  color: rgb(14, 126, 3);
+  font-family: lato;
+  font-weight: 800;
+}
+#search input {
+  width: 100%;
+  outline: none;
+  border: none;
+  padding: 5px;
+  font-size: 1.2rem;
+  box-shadow: 0px 5px 10px rgba(124, 116, 116, 0.466);
+  transition: box-shadow linear 200ms;
+  font-family: Oswald;
+  line-height: 1.2rem;
+}
+#search input:hover {
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
+#search > select {
+  outline: none;
+  border: none;
+  padding: 5px;
+  background-color: white;
+  font-size: 1.2rem;
+  box-shadow: 0px 5px 10px rgba(124, 116, 116, 0.466);
+  transition: box-shadow linear 300ms;
+}
+#search > select:hover {
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+#jobs {
+  padding: 30px;
+  max-width: 1000px;
+  margin: auto;
+}
+#found {
+  text-align: right;
+  font-size: 1.1rem;
+  color: blue;
+  font-weight: 700;
+}
+#indi-job {
+  position: relative;
+  padding: 10px 10px 20px 10px;
+  margin: 20px 0px;
+  font-size: 1rem;
+  box-shadow: 0px 10px 20px rgba(124, 116, 116, 0.466);
+  transition: box-shadow 400ms;
+}
+#indi-job:hover {
+  box-shadow: 0px 15px 40px rgba(124, 116, 116, 0.466);
+}
+#role {
+  font-size: 1.5rem;
+  color: blueviolet;
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+  padding-right: 120px;
+  line-height: 2rem;
+}
+#company {
+  color: blue;
+  font-size: 1rem;
+  text-decoration: none;
+  color: orange;
+}
+#time {
+  color: rgb(199, 0, 0);
+  line-height: 1.3rem;
+}
+#labels {
+  display: flex;
+  padding: 5px 0px;
+  margin: 2px 0px;
+}
+#labels > p {
+  padding: 2px 9px;
+  color: rgb(54, 54, 9);
+  background-color: rgb(179, 216, 43);
+  margin-right: 3px;
+
+  line-height: 1rem;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
+#job_info {
+  padding: 0px 10px;
+  font-size: 1.2rem;
+
+  text-decoration: none;
+
+  color: orange;
+  border-radius: 5px;
+
+  background-color: rgb(17, 39, 245);
+}
+img {
+  position: absolute;
+
+  height: 40px;
+  width: 100px;
+  right: 20px;
+  top: 10px;
+}
+#pageNum {
+  display: flex;
+
+  justify-content: center;
+  margin-top: 30px;
+}
+#pageNum > p:first-child {
+  background-color: yellow;
+}
+#pageNum > p {
+  background-color: aqua;
+  padding: 2px 8px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: rgb(14, 34, 122);
+}
+#goTop {
+  text-align: right;
+  padding-right: 20px;
+  color: rgb(56, 46, 2);
+  cursor: pointer;
+  font-size: 30px;
+  margin: 20px;
+}
+#arrow {
+  height: 40px;
+  width: 40px;
+  border-radius: 25px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.408);
+}
+#arrow:hover {
+  box-shadow: 0px 7px 22px rgba(0, 0, 0, 0.408);
+}
+#end {
+  color: rgb(0, 151, 113);
+  text-align: center;
+  margin-bottom: 30px;
+}
+#no_data {
+  font-size: 2rem;
+  text-align: center;
+  color: red;
+}
+@media (max-width: 600px) {
+  #search {
+    flex-direction: column;
+    align-items: center;
+    padding: 2px 5px 20px 5px;
+  }
+  #search > div > p {
+    margin: 0px;
+  }
+  #search div {
+    margin: 1px;
+    width: 80%;
+  }
+  #search input {
+    font-size: 1rem;
+  }
+
+  #search > select {
+    margin: 5px;
+    font-size: 1rem;
+  }
+  #jobs {
+    padding: 20px;
+  }
+  #indi-job {
+    font-size: 0.9rem;
+  }
+  #role {
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+    padding-right: 60px;
+  }
+
+  #labels {
+    font-size: 0.8rem;
+  }
+
+  #comp_info > a {
+    font-size: 1rem;
+  }
+  #job_info {
+    font-size: 1rem;
+  }
+  img {
+    width: 50px;
+    height: 20px;
+  }
+  #goTop {
+    padding-right: 0px;
+  }
+  #pageNum > p {
+    margin: 2px;
+  }
+}
