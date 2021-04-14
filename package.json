@@ -1,6 +1,5 @@
 {
   "name": "github_jobs",
-  "proxy": "https://jobs.github.com",
   "homepage": "https://aman282571.github.io/Github_jobs",
   "version": "0.1.0",
   "private": true,
