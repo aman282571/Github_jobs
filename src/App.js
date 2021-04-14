@@ -12,7 +12,9 @@ function App() {
     var k = 1;
 
     for (var i = 1; i <= 6; i++) {
-      fetch(`/positions.json?page=${i}`)
+      fetch(
+        `https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?page=${i}`
+      )
         .then((response) => {
           return response.json();
         })
@@ -35,7 +37,11 @@ function App() {
       {process.loading ? (
         <Loader />
       ) : process.error ? (
-        `Some went wrong`
+        <p>
+          <a href="https://cors-anywhere.herokuapp.com/corsdemo">click me</a>{" "}
+          and after clicking on "Request temporary access to the demo server"
+          come back to this website.
+        </p>
       ) : (
         <DataContext.Provider value={allJobs}>
           <ShowJobs />
